@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="my-5">
+      <div id ="error" class="alert alert-danger" role="alert" style="display: none;">
+        <strong>Error!</strong><span id="errorMessage"></span>
+      </div>
+
+      <h2>ウォーターマーク埋め込み</h2>
+      <p class="lead">2種類の画像をアップロード</p>
+      <div class="input-group my-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">元画像ファイル</span>
+        </div>
+        <div class="custom-file">
+          <input type="file" name="file" class="custom-file-input" id="originalFile">
+          <label class="custom-file-label" for="file">ファイルを選択</label>
+        </div>
+      </div>
+
+      <div class="input-group my-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">ウォーターマーク用画像</span>
+        </div>
+        <div class="custom-file">
+          <input type="file" name="file" class="custom-file-input" id="wmFile">
+          <label class="custom-file-label" for="file">ファイルを選択</label>
+        </div>
+      </div>
+
+      <div class="btn-group btn-group-toggle input-group mb-3">
+        <label for="wmSize">大きさ(<span></span>px)</label>
+        <input id="wmSize" class="form-control-range" type="range" name="wmSize" min="1">
+      </div>
+
+      <div class="btn-group btn-group-toggle input-group mb-3">
+        <label for="wmMargin">隙間(<span></span>px)</label>
+        <input id="wmMargin" class="form-control-range" type="range" name="wmDegree" min="0">
+      </div>
+
+      <div class="btn-group btn-group-toggle input-group mb-3">
+        <label for="wmOpacity">透明度(<span></span>%)</label>
+        <input id="wmOpacity" class="form-control-range" type="range" name="wmDegree" min="0" max="100" step="1">
+      </div>
+
+      <div class="btn-group btn-group-toggle input-group mb-3">
+        <label for="wmGamma">ガンマ値(<span></span>)</label>
+        <input id="wmGamma" class="form-control-range" type="range" name="wmDegree" min="1" max="100">
+      </div>
+
+      <div class="text-center">
+        <canvas id="preview"></canvas>
+      </div>
+
+      <div class="text-center">
+        <button type="button" id="wmDownloadButton" class="btn btn-primary btn-lg" style="display: none;">ウォーターマーク埋め込み画像保存</button>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="watermark.js"></script>
+</body>
+</html>
